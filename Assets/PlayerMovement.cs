@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 horizontalMovement = transform.right * horizInput;
         Vector3 movement = forwardMovement + horizontalMovement;
 
-        characterController.SimpleMove(movement * Time.deltaTime);
+        characterController.SimpleMove(movement);
     }
 
     public void StopMovement()
