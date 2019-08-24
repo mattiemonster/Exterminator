@@ -4,6 +4,7 @@ public class PlayerCamera : MonoBehaviour
 {
     [Header("Scene References")]
     public GameObject playerObject;
+    public PlayerMovement movementScript;
 
     [Header("Values")]
     public float heightOffset = 0.5f;
@@ -29,7 +30,9 @@ public class PlayerCamera : MonoBehaviour
                 Cursor.visible = true;
                 break;
         }
+        
         mouseLocked = value;
+        movementScript.acceptInput = value;
     }
 
     void Update()
@@ -41,6 +44,7 @@ public class PlayerCamera : MonoBehaviour
             transform.position = newPos;
 
             rotation.y += Input.GetAxis("Mouse X");
+            playerObject.transform.eulerAngles = rotation * lookSpeed;
             rotation.x += -Input.GetAxis("Mouse Y");
             rotation.x = Mathf.Clamp(rotation.x, -20f, 20f);
             transform.eulerAngles = rotation * lookSpeed;
