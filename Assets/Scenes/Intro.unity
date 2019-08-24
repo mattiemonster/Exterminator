@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 8
-  jumpForce: 2
+  jumpForce: 35
   acceptInput: 1
 --- !u!1 &820430288
 GameObject:

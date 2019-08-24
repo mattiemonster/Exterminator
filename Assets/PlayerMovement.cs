@@ -25,9 +25,14 @@ public class PlayerMovement : MonoBehaviour
         float vertInput = Input.GetAxis("Vertical") * playerSpeed;
 
         Vector3 forwardMovement = transform.forward * vertInput;
-        Vector3 rightMovement = transform.right * horizInput;
+        Vector3 horizontalMovement = transform.right * horizInput;
+        Vector3 movement = forwardMovement + horizontalMovement;
 
-        characterController.SimpleMove(forwardMovement + rightMovement);
-        rb.AddForce(Vector3.up * jumpForce);
+        characterController.SimpleMove(movement * Time.deltaTime);
+    }
+
+    public void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
     }
 }

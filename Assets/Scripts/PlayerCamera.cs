@@ -28,6 +28,7 @@ public class PlayerCamera : MonoBehaviour
             case false:
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                playerObject.GetComponent<PlayerMovement>().StopMovement();
                 break;
         }
         
