@@ -710,7 +710,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 431393752}
-  heightOffset: 0
+  heightOffset: 0.5
+  lookSpeed: 3
 --- !u!43 &1792577648
 Mesh:
   m_ObjectHideFlags: 0
