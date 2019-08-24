@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Scene References")]
+    public GameObject playerObject;
 
-    // Update is called once per frame
+    [Header("Values")]
+    public float heightOffset;
+
     void Update()
     {
-        
+        Vector3 newPos = playerObject.transform.position;
+        newPos.y += heightOffset;
+        transform.position = newPos;
     }
 }
