@@ -43,7 +43,7 @@ public class PlayerCamera : MonoBehaviour
             rotation.y += Input.GetAxis("Mouse X");
             rotation.x += -Input.GetAxis("Mouse Y");
             rotation.x = Mathf.Clamp(rotation.x, -20f, 20f);
-            transform.eulerAngles = (Vector2)rotation * lookSpeed;
+            transform.eulerAngles = rotation * lookSpeed;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
