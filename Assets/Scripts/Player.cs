@@ -5,14 +5,10 @@ public class Player : MonoBehaviour
     [Header("Scene References")]
     public GameObject viewmodel;
     public Transform viewmodelPoint;
+    public Crosshair crosshair;
 
     [Header("Values")]
     public Weapon currentWeapon;
-
-    void Start()
-    {
-        
-    }
 
     public void ChangeWeapon(Weapon weapon)
     {
@@ -20,6 +16,17 @@ public class Player : MonoBehaviour
         //viewmodel = Instantiate(weapon.weaponPrefab, gameObject.transform);
         //viewmodel.transform.position = viewmodelPoint.transform.position;
 
+        currentWeapon = weapon;
+    }
 
+    void Update()
+    {
+        if (currentWeapon && Input.GetKeyDown(KeyCode.Space)) 
+            Shoot();
+    }
+
+    public void Shoot()
+    {
+        crosshair.PlayDamageAnim(); // Temp just play damage anim
     }
 }
