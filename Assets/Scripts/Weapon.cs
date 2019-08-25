@@ -13,6 +13,8 @@ public class Weapon : ScriptableObject
     public int maxReserveAmmo = 150;
     public int maxCurrentAmmo = 20;
     public float damage = 5;
+    public float fireSpeed = 2f;
+    public float range = 100f;
     public AmmoType ammoType = AmmoType.Hitscan;
     public GameObject weaponPrefab;
     public Sprite weaponIcon;
