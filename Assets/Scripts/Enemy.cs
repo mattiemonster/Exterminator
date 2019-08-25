@@ -11,4 +11,6 @@ public class Enemy : ScriptableObject
     public float damage = 5f;
     [Tooltip("Speed at which enemy moves to player")]
     public float movementSpeed = 12f;
+    [Tooltip("Time it takes for an enemies attack cooldown to wear off.")]
+    public float attackDelay = 1.5f;
 }

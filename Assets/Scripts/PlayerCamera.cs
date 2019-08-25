@@ -10,7 +10,7 @@ public class PlayerCamera : MonoBehaviour
     public float heightOffset = 0.5f;
     public float lookSpeed = 3;
 
-    private Vector2 rotation = new Vector2(0, 0);
+    private Vector2 rotation = new Vector2(0, -90);
     private bool mouseLocked = true;
 
     void Start()
@@ -25,16 +25,16 @@ public class PlayerCamera : MonoBehaviour
             case true:
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                Time.timeScale = 1;
                 break;
             case false:
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                playerObject.GetComponent<PlayerMovement>().StopMovement();
+                Time.timeScale = 0;
                 break;
         }
         
         mouseLocked = value;
-        movementScript.acceptInput = value;
     }
 
     void Update()

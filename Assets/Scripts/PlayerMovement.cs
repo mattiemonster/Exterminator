@@ -3,7 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Values")]
-    public float playerSpeed = 3f;
+    public float playerSpeed = 12f;
     public float jumpForce = 2f;
     public bool acceptInput = true;
 
