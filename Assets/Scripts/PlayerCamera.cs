@@ -9,8 +9,9 @@ public class PlayerCamera : MonoBehaviour
     [Header("Values")]
     public float heightOffset = 0.5f;
     public float lookSpeed = 3;
-    Vector2 rotation = new Vector2(0, 0);
-    bool mouseLocked = true;
+
+    private Vector2 rotation = new Vector2(0, 0);
+    private bool mouseLocked = true;
 
     void Start()
     {
@@ -47,7 +48,7 @@ public class PlayerCamera : MonoBehaviour
             rotation.y += Input.GetAxis("Mouse X");
             playerObject.transform.eulerAngles = rotation * lookSpeed;
             rotation.x += -Input.GetAxis("Mouse Y");
-            rotation.x = Mathf.Clamp(rotation.x, -20f, 20f);
+            rotation.x = Mathf.Clamp(rotation.x, -30f, 30f);
             transform.eulerAngles = rotation * lookSpeed;
         }
 
