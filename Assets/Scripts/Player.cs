@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (currentWeapon && Input.GetKeyDown(KeyCode.Space)) 
+        if (currentWeapon && Input.GetMouseButtonDown(0)) 
             Shoot();
     }
 
