@@ -8,8 +8,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("Asset References")]
     public GameObject enemyPrefab;
     
-    public void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter(Collider col)
     {
+        Debug.Log("Triggered");
         if (col.gameObject.tag == "Player")
         {
             Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);

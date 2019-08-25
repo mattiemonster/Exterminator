@@ -47,7 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 2136539104581976100}
+  newWeaponUI: {fileID: 0}
+  currentWeaponUI: {fileID: 0}
   rotateSpeed: 150
+  weapon: {fileID: 11400000, guid: 52eaf564719051c43b0ee5ca6d4d4745, type: 2}
 --- !u!82 &1583040240962728921
 AudioSource:
   m_ObjectHideFlags: 0
