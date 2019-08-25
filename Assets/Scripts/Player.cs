@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public GameObject viewmodel;
     public Transform viewmodelPoint;
     public Crosshair crosshair;
+    public GameObject fpsCam;
 
     [Header("Values")]
     public Weapon currentWeapon;
@@ -27,6 +28,14 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        crosshair.PlayDamageAnim(); // Temp just play damage anim
+        RaycastHit hit;
+        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, currentWeapon.range))
+        {
+            if (hit.transform.gameObject.tag == "Enemy")
+            {
+                crosshair.PlayDamageAnim();
+                hit.transform.gameObject.GetComponent<EnemyObject>().Hurt(currentWeapon.damage);
+            }
+        }
     }
 }
