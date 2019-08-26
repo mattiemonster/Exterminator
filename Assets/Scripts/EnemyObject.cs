@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyObject : MonoBehaviour
 {
@@ -14,15 +15,20 @@ public class EnemyObject : MonoBehaviour
     [Header("Scene References")]
     public GameObject idleModel;
     public GameObject attackModel;
+    public GameObject player;
 
     private Rigidbody rb;
     private Color originalColour;
+    private NavMeshAgent agent;
 
     void Start()
     {
         if (!meshRenderer)
             meshRenderer = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        agent = GetComponent<NavMeshAgent>();
+        agent.SetDestination(player.transform.position);
         originalColour = meshRenderer.material.color;
         health = enemyType.maxHealth;
         idleModel.SetActive(true);
@@ -80,7 +86,7 @@ public class EnemyObject : MonoBehaviour
         // Knockback
         Vector3 moveDirection = player.transform.position - transform.position;
         moveDirection.y = 0;
-        rb.AddForce(moveDirection.normalized * -75f);
+        rb.AddForce(moveDirection.normalized * -enemyType.attackKnockback);
         if (rb.velocity.y >= 1)
             rb.velocity = new Vector3(rb.velocity.x, 1, rb.velocity.z);
 
@@ -105,5 +111,10 @@ public class EnemyObject : MonoBehaviour
         yield return new WaitForSeconds(time);
         idleModel.SetActive(true);
         attackModel.SetActive(false);
+    }
+
+    void FixedUpdate()
+    {
+        agent.SetDestination(player.transform.position);
     }
 }

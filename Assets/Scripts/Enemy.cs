@@ -13,4 +13,6 @@ public class Enemy : ScriptableObject
     public float movementSpeed = 12f;
     [Tooltip("Time it takes for an enemies attack cooldown to wear off.")]
     public float attackDelay = 1.5f;
+    [Tooltip("Knockback force applied to enemy when it attacks.")]
+    public float attackKnockback = 40f;
 }
