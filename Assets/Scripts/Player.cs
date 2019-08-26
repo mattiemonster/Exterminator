@@ -46,8 +46,9 @@ public class Player : MonoBehaviour
     public void Shoot()
     {
         RaycastHit hit;
-        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, currentWeapon.range))
+        if(Physics.Raycast(fpsCam.transform.position, transform.forward, out hit, currentWeapon.range))
         {
+            Debug.DrawRay(fpsCam.transform.position, hit.point, Color.green, 5f);
             if (hit.transform.gameObject.tag == "Enemy")
             {
                 crosshair.PlayDamageAnim();
