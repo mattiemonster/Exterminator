@@ -16,6 +16,10 @@ MonoBehaviour:
   maxReserveAmmo: 150
   maxCurrentAmmo: 20
   damage: 5
+  fireSpeed: 0.35
+  range: 100
+  ammoType: 0
   weaponPrefab: {fileID: 3072679616168220439, guid: b75510cfc87109b4e81228459946c8f4,
     type: 3}
   weaponIcon: {fileID: 21300000, guid: badae1515de2a0a4b99e9b990e05d86d, type: 3}
+  shootSound: {fileID: 8300000, guid: 2039bbb6ac070d74993736ca15935659, type: 3}

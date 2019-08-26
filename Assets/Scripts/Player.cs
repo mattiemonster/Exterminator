@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -13,15 +14,20 @@ public class Player : MonoBehaviour
     public Slider healthBar;
     public Image healthBarFill;
     public TextMeshProUGUI healthText;
+    public GameObject weaponReadyUI;
+    public TextMeshProUGUI currentAmmoUI, reserveAmmoUI;
 
     [Header("Asset References")]
     public AudioClip hurtSound;
+    public AudioClip weaponReadySound;
 
     [Header("Values")]
     public Weapon currentWeapon;
     public float health = 100f;
 
+    private bool canShoot = true;
     private AudioSource audioSrc;
+    private int currentAmmo, reserveAmmo;
 
     void Start()
     {
@@ -35,16 +41,43 @@ public class Player : MonoBehaviour
         //viewmodel.transform.position = viewmodelPoint.transform.position;
 
         currentWeapon = weapon;
+        currentAmmo = weapon.maxCurrentAmmo;
+        reserveAmmo = weapon.maxReserveAmmo;
+        UpdateAmmoUI();
+    }
+
+    public void UpdateAmmoUI()
+    {
+        currentAmmoUI.text = currentAmmo.ToString();
+        reserveAmmoUI.text = reserveAmmo.ToString();
     }
 
     void Update()
     {
-        if (currentWeapon && Input.GetButtonDown("PrimaryAttack")) 
+        if (currentWeapon && canShoot && Input.GetButtonDown("PrimaryAttack")) 
             Shoot();
     }
 
     public void Shoot()
     {
+
+        // Shoot cooldown
+        canShoot = false;
+        StartCoroutine(ShootCooldown());
+
+        // Update ammo
+        currentAmmo--;
+        UpdateAmmoUI();
+        if (currentAmmo == 0)
+        {
+            // TODO: RELOAD, PREVENT FIRING
+        }
+        
+        // Play shoot sound
+        audioSrc.clip = currentWeapon.shootSound;
+        audioSrc.Play();
+        
+        // Check for enemy hit
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, transform.forward, out hit, currentWeapon.range))
         {
@@ -55,6 +88,7 @@ public class Player : MonoBehaviour
                 hit.transform.gameObject.GetComponent<EnemyObject>().Hurt(currentWeapon.damage);
             }
         }
+        
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -65,13 +99,18 @@ public class Player : MonoBehaviour
 
     public void Hurt(float damage)
     {
+        // Hurt player and update health UI
         health -= damage;
         healthBar.value = health;
         healthBarFill.color = Color.Lerp(Color.red, Color.green, health / 100);
         healthText.text = health.ToString();
+
+        // Play hurt sound
         audioSrc.clip = hurtSound;
         audioSrc.Play();
 
+        // Check if player has died
+        // TODO Sound and animation
         if (health <= 0)
             Kill();
     }
@@ -79,5 +118,14 @@ public class Player : MonoBehaviour
     public void Kill()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
+
+    IEnumerator ShootCooldown()
+    {
+        yield return new WaitForSeconds(currentWeapon.fireSpeed);
+        canShoot = true;
+        //audioSrc.clip = weaponReadySound;
+        //audioSrc.Play();
+        weaponReadyUI.GetComponent<Animator>().Play("WeaponReady");
     }
 }

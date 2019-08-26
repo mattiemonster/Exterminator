@@ -32,6 +32,7 @@ public class EnemyObject : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(player.transform.position);
+        agent.speed = enemyType.movementSpeed;
         originalColour = meshRenderer.material.color;
         health = enemyType.maxHealth;
         idleModel.SetActive(true);

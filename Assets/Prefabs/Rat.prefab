@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2999997, y: 0.20000005, z: 1.0999999}
-  m_Center: {x: -0.05000013, y: 0.100000024, z: -0.049999923}
+  m_Size: {x: 0.6000023, y: 0.20000005, z: 1.4000001}
+  m_Center: {x: 0.0000009536743, y: 0.100000024, z: 0.10000017}
 --- !u!114 &6768486466517344704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7197735555083674791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: -0, y: 0.261, z: 0.457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1771263041599933148}
@@ -229,8 +229,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.035793543, g: 1, b: 0, a: 1}
-  m_Intensity: 1
-  m_Range: 1
+  m_Intensity: 3
+  m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

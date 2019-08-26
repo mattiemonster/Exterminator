@@ -25,4 +25,6 @@ public class Weapon : ScriptableObject
     public GameObject weaponPrefab;
     [Tooltip("Sprite shown in current weapon UI.")]
     public Sprite weaponIcon;
+    [Tooltip("Sound played when the weapon is fired")]
+    public AudioClip shootSound;
 }
