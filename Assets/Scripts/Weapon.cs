@@ -6,6 +6,12 @@ public enum AmmoType
     Projectile
 }
 
+public enum FireMode
+{
+    SingleFire,
+    Auto
+}
+
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Game/Weapon")]
 public class Weapon : ScriptableObject
 {
@@ -23,6 +29,8 @@ public class Weapon : ScriptableObject
     public bool showWeaponReady = true;
     [Tooltip("Type of ammo for the weapon to fire. Hitscan shoots an invisble ray and damages hit enemies, projectile fires a damaging projectile based of a prefab.")]
     public AmmoType ammoType = AmmoType.Hitscan;
+    [Tooltip("If the weapon should be single fire or automatic.")]
+    public FireMode fireMode = FireMode.SingleFire;
     [Tooltip("Weapon prefab used for viewmodels.")]
     public GameObject weaponPrefab;
     [Tooltip("Sprite shown in current weapon UI.")]

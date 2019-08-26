@@ -54,8 +54,17 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (currentWeapon && canShoot && Input.GetButtonDown("PrimaryAttack")) 
+        if (currentWeapon && canShoot && currentWeapon.fireMode == FireMode.SingleFire &&
+            Input.GetButtonDown("PrimaryAttack"))
+        {
             Shoot();
+        }
+
+        if (currentWeapon && canShoot && currentWeapon.fireMode == FireMode.Auto &&
+           Input.GetButton("PrimaryAttack"))
+        {
+            Shoot();
+        }
     }
 
     public void Shoot()

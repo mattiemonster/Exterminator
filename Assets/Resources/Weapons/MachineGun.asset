@@ -20,6 +20,7 @@ MonoBehaviour:
   range: 100
   showWeaponReady: 0
   ammoType: 0
+  fireMode: 1
   weaponPrefab: {fileID: 0}
   weaponIcon: {fileID: 21300000, guid: 3e94807fb3ca5524a83c9ecb8d1d3bad, type: 3}
   shootSound: {fileID: 8300000, guid: e715d83c05c71ad43a88e2e29aac5031, type: 3}
