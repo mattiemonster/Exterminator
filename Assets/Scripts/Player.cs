@@ -124,8 +124,11 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(currentWeapon.fireSpeed);
         canShoot = true;
+
         //audioSrc.clip = weaponReadySound;
         //audioSrc.Play();
-        weaponReadyUI.GetComponent<Animator>().Play("WeaponReady");
+
+        if (currentWeapon.showWeaponReady)
+            weaponReadyUI.GetComponent<Animator>().Play("WeaponReady");
     }
 }

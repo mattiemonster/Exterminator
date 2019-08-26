@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class WeaponPickup : MonoBehaviour
 {
     [Header("Scene References")]
     public MeshRenderer meshRenderer;
     public NewWeaponUI newWeaponUI;
+    public TextMeshProUGUI newWeaponText;
     public CurrentWeaponUI currentWeaponUI;
 
     [Header("Values")]
@@ -21,6 +23,7 @@ public class WeaponPickup : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             GetComponent<AudioSource>().Play();
+            newWeaponText.text = weapon.weaponName;
             newWeaponUI.OpenUI();
             currentWeaponUI.SetWeapon(weapon);
             col.gameObject.GetComponent<Player>().ChangeWeapon(weapon);           

@@ -19,6 +19,8 @@ public class Weapon : ScriptableObject
     public float fireSpeed = 2f;
     [Tooltip("How far the hitscan ray can travel.")]
     public float range = 100f;
+    [Tooltip("If the weapon ready UI should appear when cooldown is finished. Turn off for rapid fire.")]
+    public bool showWeaponReady = true;
     [Tooltip("Type of ammo for the weapon to fire. Hitscan shoots an invisble ray and damages hit enemies, projectile fires a damaging projectile based of a prefab.")]
     public AmmoType ammoType = AmmoType.Hitscan;
     [Tooltip("Weapon prefab used for viewmodels.")]

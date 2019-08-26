@@ -15,4 +15,8 @@ public class Enemy : ScriptableObject
     public float attackDelay = 1.5f;
     [Tooltip("Knockback force applied to enemy when it attacks.")]
     public float attackKnockback = 40f;
+    [Tooltip("Sound played when enemy is hurt.")]
+    public AudioClip hurtSound;
+    [Tooltip("Sound played when enemy dies.")]
+    public AudioClip deathSound;
 }

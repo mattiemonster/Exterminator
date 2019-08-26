@@ -21,6 +21,7 @@ public class EnemyObject : MonoBehaviour
     public GameObject bloodParticle;
 
     private Rigidbody rb;
+    private AudioSource audioSrc;
     private Color originalColour;
     private NavMeshAgent agent;
 
@@ -29,6 +30,7 @@ public class EnemyObject : MonoBehaviour
         if (!meshRenderer)
             meshRenderer = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
+        audioSrc = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(player.transform.position);
@@ -66,7 +68,9 @@ public class EnemyObject : MonoBehaviour
         health -= damage;
         StartCoroutine(HurtEffect(meshRenderer, Color.red, 0.5f, 0.08f));
         Instantiate(bloodParticle, transform.position, Quaternion.identity);
-        if (health == 0)
+        audioSrc.clip = enemyType.hurtSound;
+        audioSrc.Play();
+        if (health <= 0)
             Destroy(gameObject);
     }
 
