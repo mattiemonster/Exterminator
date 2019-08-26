@@ -17,6 +17,9 @@ public class EnemyObject : MonoBehaviour
     public GameObject attackModel;
     public GameObject player;
 
+    [Header("Asset References")]
+    public GameObject bloodParticle;
+
     private Rigidbody rb;
     private Color originalColour;
     private NavMeshAgent agent;
@@ -61,6 +64,7 @@ public class EnemyObject : MonoBehaviour
     {
         health -= damage;
         StartCoroutine(HurtEffect(meshRenderer, Color.red, 0.5f, 0.08f));
+        Instantiate(bloodParticle, transform.position, Quaternion.identity);
         if (health == 0)
             Destroy(gameObject);
     }
@@ -86,7 +90,7 @@ public class EnemyObject : MonoBehaviour
         // Knockback
         Vector3 moveDirection = player.transform.position - transform.position;
         moveDirection.y = 0;
-        rb.AddForce(moveDirection.normalized * -enemyType.attackKnockback);
+        // rb.AddForce(moveDirection.normalized * -enemyType.attackKnockback);
         if (rb.velocity.y >= 1)
             rb.velocity = new Vector3(rb.velocity.x, 1, rb.velocity.z);
 

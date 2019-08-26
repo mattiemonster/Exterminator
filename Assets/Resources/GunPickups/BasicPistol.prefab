@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4886559236568727591}
   - component: {fileID: 1583040240962728921}
   - component: {fileID: 2377022610368281339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BasicPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 7981751539252246535}
   - component: {fileID: 7242949524418358484}
   - component: {fileID: 2136539104581976100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

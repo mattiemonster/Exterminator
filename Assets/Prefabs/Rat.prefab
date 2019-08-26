@@ -162,6 +162,9 @@ MonoBehaviour:
   health: 0
   idleModel: {fileID: 9134383258043784530}
   attackModel: {fileID: 3089329762580949254}
+  player: {fileID: 0}
+  bloodParticle: {fileID: 5480438148509767061, guid: b503284c210063644a6b09f077459956,
+    type: 3}
 --- !u!195 &6768486466517344732
 NavMeshAgent:
   m_ObjectHideFlags: 0

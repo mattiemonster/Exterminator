@@ -25,15 +25,14 @@ public class PlayerCamera : MonoBehaviour
             case true:
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                Time.timeScale = 1;
                 break;
             case false:
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                Time.timeScale = 0;
                 break;
         }
-        
+
+        movementScript.acceptInput = value;
         mouseLocked = value;
     }
 
@@ -53,10 +52,5 @@ public class PlayerCamera : MonoBehaviour
             transform.eulerAngles = rotation * lookSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            MouseLock(!mouseLocked);
-
-        if (Input.GetMouseButtonDown(0) && !mouseLocked)
-            MouseLock(true);
     }
 }
