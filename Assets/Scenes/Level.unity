@@ -25231,6 +25231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2992983377264795104}
   movementScript: {fileID: 2992983377264795111}
+  playerScript: {fileID: 2992983377264795097}
   heightOffset: 0.5
   lookSpeed: 3
 --- !u!20 &2992983377222298355
@@ -25343,6 +25344,7 @@ MonoBehaviour:
   weaponReadySound: {fileID: 8300000, guid: 9abd38eacd29f3644a981e809b3c48ce, type: 3}
   currentWeapon: {fileID: 0}
   health: 100
+  canShoot: 1
 --- !u!143 &2992983377264795098
 CharacterController:
   m_ObjectHideFlags: 0
@@ -25574,7 +25576,7 @@ PrefabInstance:
     - target: {fileID: 2566923067965112385, guid: d5909b1cd0b248c4b97acbe73d8368d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 2566923067965112385, guid: d5909b1cd0b248c4b97acbe73d8368d5,
         type: 3}

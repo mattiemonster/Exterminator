@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
     public Weapon currentWeapon;
     public float health = 100f;
 
-    private bool canShoot = true;
+    [HideInInspector]
+    public bool canShoot = true;
     private AudioSource audioSrc;
     private int currentAmmo, reserveAmmo;
 

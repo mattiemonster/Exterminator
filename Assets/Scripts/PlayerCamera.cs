@@ -5,6 +5,7 @@ public class PlayerCamera : MonoBehaviour
     [Header("Scene References")]
     public GameObject playerObject;
     public PlayerMovement movementScript;
+    public Player playerScript;
 
     [Header("Values")]
     public float heightOffset = 0.5f;
@@ -33,6 +34,7 @@ public class PlayerCamera : MonoBehaviour
         }
 
         movementScript.acceptInput = value;
+        playerScript.canShoot = value;
         mouseLocked = value;
     }
 
