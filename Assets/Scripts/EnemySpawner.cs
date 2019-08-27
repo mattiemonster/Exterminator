@@ -10,7 +10,6 @@ public class EnemySpawner : MonoBehaviour
     
     public void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Triggered");
         if (col.gameObject.tag == "Player")
         {
             Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);

@@ -43,7 +43,6 @@ public class PlayerCamera : MonoBehaviour
         if (mouseLocked)
         {
             Vector3 newPos = playerObject.transform.position;
-            // Debug.Log(playerObject.transform.position + ", " + newPos);
             newPos.y += heightOffset;
             transform.position = newPos;
 
