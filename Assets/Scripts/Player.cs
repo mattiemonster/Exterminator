@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
 
     [HideInInspector]
     public bool canShoot = true;
+    [HideInInspector]
+    public bool FullHealth
+    {
+        get { return health == 100 ? true : false; }
+    }
     private AudioSource audioSrc;
     private int currentAmmo, reserveAmmo;
 
@@ -111,9 +116,7 @@ public class Player : MonoBehaviour
     {
         // Hurt player and update health UI
         health -= damage;
-        healthBar.value = health;
-        healthBarFill.color = Color.Lerp(Color.red, Color.green, health / 100);
-        healthText.text = health.ToString();
+        UpdateHealthBar();
 
         // Play hurt sound
         audioSrc.clip = hurtSound;
@@ -123,6 +126,21 @@ public class Player : MonoBehaviour
         // TODO Sound and animation
         if (health <= 0)
             Kill();
+    }
+
+    public void Heal(float healAmount = 15f)
+    {
+        health += healAmount;
+        if (health >= 100)
+            health = 100;
+        UpdateHealthBar();
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.value = health;
+        healthBarFill.color = Color.Lerp(Color.red, Color.green, health / 100);
+        healthText.text = health.ToString();
     }
 
     public void Kill()

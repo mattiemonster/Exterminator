@@ -1,18 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Scene References")]
+    public Player player;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Values")]
+    public float healAmount = 15f;
+
+    void OnTriggerEnter(Collider collider)
     {
-        
+        if (collider.gameObject.tag == "Player")
+        {
+            if (player.FullHealth) return;
+
+            // Give player health
+            player.Heal(healAmount);
+
+            // Destroy object
+            Destroy(gameObject);
+        }
     }
 }
