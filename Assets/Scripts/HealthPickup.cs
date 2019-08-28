@@ -33,6 +33,7 @@ public class HealthPickup : MonoBehaviour
             audioSrc.Play();
 
             // Destroy object
+            Destroy(GetComponent<SphereCollider>());
             Destroy(gameObject, healSound.length + 0.05f);
         }
     }
