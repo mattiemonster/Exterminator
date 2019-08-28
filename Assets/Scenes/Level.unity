@@ -1354,8 +1354,40 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4850030767367745715, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850030767367745715, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850030767367745715, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850030767367745715, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7724c7fa991d10440ae2d3b3dab1c264, type: 3}
+--- !u!114 &91204983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3014902677262233872, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+    type: 3}
+  m_PrefabInstance: {fileID: 91204982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8d68150f1757d42b8a6a9187e56459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97214891
 GameObject:
   m_ObjectHideFlags: 0
@@ -10607,6 +10639,11 @@ PrefabInstance:
       propertyPath: newWeaponText
       value: 
       objectReference: {fileID: 644273054}
+    - target: {fileID: 4886559236568727591, guid: 0634ad9b9270f014fb27261cd108fcfa,
+        type: 3}
+      propertyPath: shootTut
+      value: 
+      objectReference: {fileID: 91204983}
     - target: {fileID: 6988790599346486449, guid: 0634ad9b9270f014fb27261cd108fcfa,
         type: 3}
       propertyPath: m_Layer
@@ -33043,6 +33080,49 @@ MonoBehaviour:
   m_Center: {x: -2.7000003, y: -0.14715034, z: 3.1125946}
   m_Area: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &2127399691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127399693}
+  - component: {fileID: 2127399692}
+  m_Layer: 0
+  m_Name: LevelMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2127399692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127399691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e1c72527332b54fb6b778a14a56b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2127399693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127399691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2128223081 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8129696387665428255, guid: 7724c7fa991d10440ae2d3b3dab1c264,
@@ -34348,6 +34428,11 @@ PrefabInstance:
       propertyPath: newWeaponText
       value: 
       objectReference: {fileID: 644273054}
+    - target: {fileID: 7414400671350827870, guid: d5909b1cd0b248c4b97acbe73d8368d5,
+        type: 3}
+      propertyPath: shootTut
+      value: 
+      objectReference: {fileID: 91204983}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5909b1cd0b248c4b97acbe73d8368d5, type: 3}
 --- !u!1001 &8987410727822420016

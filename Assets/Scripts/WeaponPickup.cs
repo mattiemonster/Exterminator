@@ -8,6 +8,7 @@ public class WeaponPickup : MonoBehaviour
     public NewWeaponUI newWeaponUI;
     public TextMeshProUGUI newWeaponText;
     public CurrentWeaponUI currentWeaponUI;
+    public ShootTutorial shootTut;
 
     [Header("Values")]
     public float rotateSpeed = 150f;
@@ -22,6 +23,8 @@ public class WeaponPickup : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            if (!LevelMaster.movementTutCompleted) return;
+            if (!LevelMaster.shootTutCompleted) shootTut.ShowTutorial();
             GetComponent<AudioSource>().Play();
             newWeaponText.text = weapon.weaponName;
             newWeaponUI.OpenUI();

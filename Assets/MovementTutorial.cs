@@ -50,6 +50,7 @@ public class MovementTutorial : MonoBehaviour
 
         if (progress == 4)
         {
+            LevelMaster.movementTutCompleted = true;
             GetComponent<Animator>().Play("CloseWASD");
             Destroy(gameObject, 0.8f);
         }
