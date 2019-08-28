@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
     {
         get { return health == 100 ? true : false; }
     }
+    [HideInInspector]
+    public bool FullReserveAmmo
+    {
+        get { return reserveAmmo == currentWeapon.maxReserveAmmo ? true : false; }
+    }
     private AudioSource audioSrc;
     private int currentAmmo, reserveAmmo;
     private bool outOfAmmo;
@@ -207,5 +212,16 @@ public class Player : MonoBehaviour
 
         if (currentWeapon.showWeaponReady)
             weaponReadyUI.GetComponent<Animator>().Play("WeaponReady");
+    }
+
+    public void PickupAmmo()
+    {
+        if (reserveAmmo == currentWeapon.maxReserveAmmo) return;
+        else
+        {
+            reserveAmmo += currentWeapon.maxCurrentAmmo;
+            if (reserveAmmo > currentWeapon.maxReserveAmmo)
+                reserveAmmo = currentWeapon.maxReserveAmmo;
+        }
     }
 }

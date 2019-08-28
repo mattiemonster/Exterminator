@@ -6,7 +6,6 @@ public class WeaponPickup : MonoBehaviour
     [Header("Scene References")]
     public MeshRenderer meshRenderer;
     public NewWeaponUI newWeaponUI;
-    public TextMeshProUGUI newWeaponText;
     public CurrentWeaponUI currentWeaponUI;
     public ShootTutorial shootTut;
 
@@ -26,8 +25,7 @@ public class WeaponPickup : MonoBehaviour
             if (!LevelMaster.movementTutCompleted) return;
             if (!LevelMaster.shootTutCompleted) shootTut.ShowTutorial();
             GetComponent<AudioSource>().Play();
-            newWeaponText.text = weapon.weaponName;
-            newWeaponUI.OpenUI();
+            newWeaponUI.OpenUI(weapon);
             currentWeaponUI.SetWeapon(weapon);
             col.gameObject.GetComponent<Player>().ChangeWeapon(weapon);           
             Destroy(meshRenderer);
