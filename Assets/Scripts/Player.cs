@@ -222,6 +222,7 @@ public class Player : MonoBehaviour
             reserveAmmo += currentWeapon.maxCurrentAmmo;
             if (reserveAmmo > currentWeapon.maxReserveAmmo)
                 reserveAmmo = currentWeapon.maxReserveAmmo;
+            UpdateAmmoUI();
         }
     }
 }
