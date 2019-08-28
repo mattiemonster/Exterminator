@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public Image healthBarFill;
     public TextMeshProUGUI healthText;
     public GameObject weaponReadyUI;
+    public GameObject reloadingUI;
+    public GameObject noAmmoUI;
     public TextMeshProUGUI currentAmmoUI, reserveAmmoUI;
 
     [Header("Asset References")]
@@ -34,10 +36,12 @@ public class Player : MonoBehaviour
     }
     private AudioSource audioSrc;
     private int currentAmmo, reserveAmmo;
+    private bool outOfAmmo;
 
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
+        reloadingUI.SetActive(false);
     }
 
     public void ChangeWeapon(Weapon weapon)
@@ -71,10 +75,16 @@ public class Player : MonoBehaviour
         {
             Shoot();
         }
+
+        if (currentAmmo != currentWeapon?.maxCurrentAmmo && Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(Reload());
+        }
     }
 
     public void Shoot()
     {
+        if (!canShoot) return;
 
         // Shoot cooldown
         canShoot = false;
@@ -83,10 +93,6 @@ public class Player : MonoBehaviour
         // Update ammo
         currentAmmo--;
         UpdateAmmoUI();
-        if (currentAmmo == 0)
-        {
-            // TODO: RELOAD, PREVENT FIRING
-        }
         
         // Play shoot sound
         audioSrc.clip = currentWeapon.shootSound;
@@ -103,7 +109,47 @@ public class Player : MonoBehaviour
                 hit.transform.gameObject.GetComponent<EnemyObject>().Hurt(currentWeapon.damage);
             }
         }
-        
+
+        if (currentAmmo == 0)
+        {
+            canShoot = false;
+            StartCoroutine(Reload());
+            outOfAmmo = true;
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        // Show reloading UI
+        if (reserveAmmo == 0)
+        {
+            if (currentAmmo == 0)
+            {
+                noAmmoUI.SetActive(true);
+                yield break;
+            }
+            else
+                yield break;
+        }
+        canShoot = false;
+        reloadingUI.SetActive(true);
+        // Wait
+        yield return new WaitForSeconds(currentWeapon.reloadTime);
+        // Update ammo
+        int neededAmmo = currentWeapon.maxCurrentAmmo - currentAmmo;
+        reserveAmmo -= neededAmmo;
+        if (reserveAmmo >= neededAmmo)
+        {
+            currentAmmo = currentWeapon.maxCurrentAmmo;
+        } else
+        {
+            currentAmmo += reserveAmmo;
+            reserveAmmo = 0;
+        }
+        UpdateAmmoUI();
+        reloadingUI.SetActive(false);
+        outOfAmmo = false;
+        canShoot = true;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -130,7 +176,9 @@ public class Player : MonoBehaviour
 
     public void Heal(float healAmount = 15f)
     {
+        // Add health
         health += healAmount;
+        // Check if new health is over max
         if (health >= 100)
             health = 100;
         UpdateHealthBar();
@@ -151,6 +199,7 @@ public class Player : MonoBehaviour
     IEnumerator ShootCooldown()
     {
         yield return new WaitForSeconds(currentWeapon.fireSpeed);
+        if (outOfAmmo) yield break;
         canShoot = true;
 
         //audioSrc.clip = weaponReadySound;

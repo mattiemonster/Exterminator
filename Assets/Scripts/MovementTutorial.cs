@@ -15,6 +15,7 @@ public class MovementTutorial : MonoBehaviour
 
     void Start()
     {
+        if (LevelMaster.movementTutCompleted) Destroy(gameObject);
         GetComponent<Animator>().Play("OpenWASD");
     }
 

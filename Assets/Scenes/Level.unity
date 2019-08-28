@@ -1374,6 +1374,56 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5568926161579402485, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568926161579402485, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568926161579402485, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568926161579402485, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568926161579402485, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455546570906020996, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455546570906020996, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455546570906020996, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455546570906020996, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455546570906020996, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7724c7fa991d10440ae2d3b3dab1c264, type: 3}
 --- !u!114 &91204983 stripped
@@ -22168,6 +22218,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444335190}
   m_Mesh: {fileID: 1284809695}
+--- !u!1 &1483143167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7662711028445539737, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+    type: 3}
+  m_PrefabInstance: {fileID: 91204982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1488278445
 Mesh:
   m_ObjectHideFlags: 0
@@ -23751,6 +23807,12 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1694676554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2603865074211779980, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+    type: 3}
+  m_PrefabInstance: {fileID: 91204982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1709625828
 GameObject:
   m_ObjectHideFlags: 0
@@ -34054,6 +34116,8 @@ MonoBehaviour:
   healthBarFill: {fileID: 1022586120}
   healthText: {fileID: 1159261541}
   weaponReadyUI: {fileID: 529315510}
+  reloadingUI: {fileID: 1483143167}
+  noAmmoUI: {fileID: 1694676554}
   currentAmmoUI: {fileID: 45737040}
   reserveAmmoUI: {fileID: 347657783}
   hurtSound: {fileID: 8300000, guid: 994cd41f7c3842d4a960bf76c05928c6, type: 3}

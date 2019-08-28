@@ -23,6 +23,8 @@ public class Weapon : ScriptableObject
     public float damage = 5;
     [Tooltip("How fast the weapon can fire. Smaller is faster.")]
     public float fireSpeed = 2f;
+    [Tooltip("How long it takes for the weapon to reload.")]
+    public float reloadTime = 1.5f;
     [Tooltip("How far the hitscan ray can travel.")]
     public float range = 100f;
     [Tooltip("If the weapon ready UI should appear when cooldown is finished. Turn off for rapid fire.")]
