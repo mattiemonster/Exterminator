@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+public enum EnemyAttackType
+{
+    Melee,
+    Projectile
+}
+
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Game/Enemy")]
 public class Enemy : ScriptableObject
 {
@@ -15,8 +21,14 @@ public class Enemy : ScriptableObject
     public float attackDelay = 1.5f;
     [Tooltip("Knockback force applied to enemy when it attacks.")]
     public float attackKnockback = 40f;
+    [Tooltip("If true, basic enemy ai (move directly to player position) will be disabled")]
+    public bool supressBasicAI = false;
     [Tooltip("Sound played when enemy is hurt.")]
     public AudioClip hurtSound;
+    [Tooltip("Enemy attack type")]
+    public EnemyAttackType attackType;
+    [Tooltip("Attack projectile (if applicable)")]
+    public GameObject projectile;
     [Tooltip("Sound played when enemy dies.")]
     public AudioClip deathSound;
 }

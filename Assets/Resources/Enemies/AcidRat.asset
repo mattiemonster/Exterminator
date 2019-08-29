@@ -18,5 +18,9 @@ MonoBehaviour:
   movementSpeed: 3.5
   attackDelay: 2
   attackKnockback: 40
-  hurtSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  supressBasicAI: 1
+  hurtSound: {fileID: 8300000, guid: 4d1e3ef1ea8071c43ae6b01a75bedd14, type: 3}
+  attackType: 1
+  projectile: {fileID: 4759624044043554509, guid: 9f9e2751b83353544a4210fd683e5005,
+    type: 3}
+  deathSound: {fileID: 8300000, guid: ec9c0ca7c76b30e4aa38521bd09ac3fa, type: 3}

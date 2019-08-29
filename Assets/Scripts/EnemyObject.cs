@@ -71,7 +71,13 @@ public class EnemyObject : MonoBehaviour
         audioSrc.clip = enemyType.hurtSound;
         audioSrc.Play();
         if (health <= 0)
-            Destroy(gameObject);
+        {
+            Destroy(meshRenderer);
+            Destroy(GetComponent<BoxCollider>());
+            audioSrc.clip = enemyType.deathSound;
+            audioSrc.Play();
+            Destroy(gameObject, enemyType.deathSound.length);
+        }
     }
 
     void OnCollisionEnter(Collision col)
@@ -124,6 +130,7 @@ public class EnemyObject : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (enemyType.supressBasicAI) return;
         agent.SetDestination(player.transform.position);
     }
 }
