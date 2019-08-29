@@ -1,3 +1,3 @@
-I still need to implement: acid spitting rat, rpg weapon, more level, boss rat and the big epic unpredictable twist
+I still need to implement: rpg weapon, more level, boss rat and the big epic unpredictable twist
 Also an intro text tutorial thingy. Maybe some lies in there.
 "they'll kill weaklings like you in one hit"

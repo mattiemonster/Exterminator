@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject reloadingUI;
     public GameObject noAmmoUI;
     public TextMeshProUGUI currentAmmoUI, reserveAmmoUI;
+    public ReloadTutorial reloadTutorial;
 
     [Header("Asset References")]
     public AudioClip hurtSound;
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour
             Shoot();
         }
 
-        if (currentAmmo != currentWeapon?.maxCurrentAmmo && Input.GetKeyDown(KeyCode.R))
+        if (currentWeapon && currentAmmo != currentWeapon.maxCurrentAmmo && Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
         }
@@ -113,6 +114,11 @@ public class Player : MonoBehaviour
                 crosshair.PlayDamageAnim();
                 hit.transform.gameObject.GetComponent<EnemyObject>().Hurt(currentWeapon.damage);
             }
+        }
+
+        if (currentAmmo == 12 && !LevelMaster.reloadTutCompleted)
+        {
+            reloadTutorial.ShowTutorial();
         }
 
         if (currentAmmo == 0)

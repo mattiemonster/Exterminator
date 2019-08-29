@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicPistol
   m_EditorClassIdentifier: 
   weaponName: Pistol
-  maxReserveAmmo: 150
+  maxReserveAmmo: 45
   maxCurrentAmmo: 15
   damage: 5
   fireSpeed: 0.35

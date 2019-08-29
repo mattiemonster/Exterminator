@@ -76,6 +76,7 @@ public class EnemyObject : MonoBehaviour
         audioSrc.Play();
         if (health <= 0)
         {
+            StopAllCoroutines();
             Destroy(meshRenderer);
             Destroy(GetComponent<BoxCollider>());
             Destroy(eyeLight);
