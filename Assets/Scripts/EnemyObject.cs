@@ -16,6 +16,7 @@ public class EnemyObject : MonoBehaviour
     public GameObject idleModel;
     public GameObject attackModel;
     public GameObject player;
+    public GameObject eyeLight;
 
     [Header("Asset References")]
     public GameObject bloodParticle;
@@ -23,7 +24,8 @@ public class EnemyObject : MonoBehaviour
     private Rigidbody rb;
     private AudioSource audioSrc;
     private Color originalColour;
-    private NavMeshAgent agent;
+    [HideInInspector]
+    public NavMeshAgent agent;
 
     void Start()
     {
@@ -47,6 +49,7 @@ public class EnemyObject : MonoBehaviour
         var newColor = flashColor;
         while (flashingFor < flashTime)
         {
+            if (!toFlash) yield break;
             toFlash.material.color = newColor;
             flashingFor += Time.deltaTime;
             yield return new WaitForSeconds(flashSpeed);
@@ -60,6 +63,7 @@ public class EnemyObject : MonoBehaviour
                 newColor = flashColor;
             }
         }
+        if (!toFlash) yield break;
         toFlash.material.color = originalColour;
     }
 
@@ -74,9 +78,11 @@ public class EnemyObject : MonoBehaviour
         {
             Destroy(meshRenderer);
             Destroy(GetComponent<BoxCollider>());
+            Destroy(eyeLight);
             audioSrc.clip = enemyType.deathSound;
             audioSrc.Play();
             Destroy(gameObject, enemyType.deathSound.length);
+            Destroy(this);
         }
     }
 
@@ -98,21 +104,37 @@ public class EnemyObject : MonoBehaviour
 
     public void Attack(Player player)
     {
-        // Knockback
-        Vector3 moveDirection = player.transform.position - transform.position;
-        moveDirection.y = 0;
-        // rb.AddForce(moveDirection.normalized * -enemyType.attackKnockback);
-        if (rb.velocity.y >= 1)
-            rb.velocity = new Vector3(rb.velocity.x, 1, rb.velocity.z);
+        if (canAttack)
+        {
+            EnterAttackModel();
+            StartCoroutine(ReturnToIdleModel());
+            StartCoroutine(AttackCooldown(enemyType.attackDelay));
+        }
 
-        if (!canAttack) return; // If still cooling down, do not damage player.
+        if (enemyType.attackType == EnemyAttackType.Melee)
+        {
+            // Melee attack
 
-        EnterAttackModel();
-        StartCoroutine(ReturnToIdleModel());
-        player.Hurt(enemyType.damage);
+            // Knockback
+            Vector3 moveDirection = player.transform.position - transform.position;
+            moveDirection.y = 0;
+            // rb.AddForce(moveDirection.normalized * -enemyType.attackKnockback);
+            if (rb.velocity.y >= 1)
+                rb.velocity = new Vector3(rb.velocity.x, 1, rb.velocity.z);
+
+            if (!canAttack) return; // If still cooling down, do not attack
+
+            player.Hurt(enemyType.damage);
+        } else
+        {
+            if (!canAttack) return; // If still cooling down, do not attack
+            // Projectile attack
+
+            // var heading = player.transform.position - transform.position;
+            Instantiate(enemyType.projectile, transform.position, Quaternion.identity);
+        }
 
         canAttack = false;
-        StartCoroutine(AttackCooldown(enemyType.attackDelay));
     }
 
     void EnterAttackModel()

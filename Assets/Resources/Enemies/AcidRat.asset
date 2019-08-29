@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHealth: 20
   damage: 10
   movementSpeed: 3.5
-  attackDelay: 2
+  attackDelay: 3
   attackKnockback: 40
   supressBasicAI: 1
   hurtSound: {fileID: 8300000, guid: 4d1e3ef1ea8071c43ae6b01a75bedd14, type: 3}

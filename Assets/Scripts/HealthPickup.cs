@@ -34,6 +34,7 @@ public class HealthPickup : MonoBehaviour
 
             // Destroy object
             Destroy(GetComponent<SphereCollider>());
+            Destroy(GetComponent<MeshRenderer>());
             Destroy(gameObject, healSound.length + 0.05f);
         }
     }

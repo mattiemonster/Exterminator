@@ -31,6 +31,7 @@ public class AmmoPickup : MonoBehaviour
 
             // Destroy object
             Destroy(GetComponent<BoxCollider>());
+            Destroy(GetComponent<MeshRenderer>());
             Destroy(gameObject, pickupSound.length + 0.05f);
         }
     }
