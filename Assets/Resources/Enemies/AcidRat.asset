@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AcidRat
   m_EditorClassIdentifier: 
   enemyName: Acid Spitting Rat
-  maxHealth: 20
+  maxHealth: 25
   damage: 10
   movementSpeed: 3.5
   attackDelay: 3
