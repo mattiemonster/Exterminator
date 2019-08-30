@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 7315179143167252065}
   - component: {fileID: 7315179143167252061}
   - component: {fileID: 6346740833143923002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   healSound: {fileID: 8300000, guid: 05de239289a7d50478e67a1918920b5a, type: 3}
-  healAmount: 20
+  healAmount: 25
 --- !u!82 &6346740833143923002
 AudioSource:
   m_ObjectHideFlags: 0
