@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public enum Source
 {
@@ -30,6 +31,13 @@ public class ProjectileObject : MonoBehaviour
         {
             transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
         }
+        StartCoroutine(ExplodeAfterTime(projectileType.maxFlyTime));
+    }
+
+    IEnumerator ExplodeAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 
     void FixedUpdate()
@@ -51,6 +59,8 @@ public class ProjectileObject : MonoBehaviour
             if (!projectileType.explosive)
                 col.gameObject.GetComponent<Player>().Hurt(projectileType.damage);
         }
+
+        StopAllCoroutines();
 
         if (projectileType.explosive)
         {
