@@ -13,6 +13,10 @@ public class ProjectileObject : MonoBehaviour
     public Projectile projectileType;
     public GameObject explosionRadius;
 
+    [Header("Scene References")]
+    public GameObject mesh;
+    public GameObject objectLight;
+
     [Header("Values")]
     public Vector3 dir;
     public Source source = Source.Enemy;
@@ -53,7 +57,27 @@ public class ProjectileObject : MonoBehaviour
             Instantiate(explosionRadius, transform.position, Quaternion.identity).GetComponent<ExplosionRadius>().Init(projectileType);
         }
         Instantiate(projectileType.collideEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (!projectileType.explosive)
+        {
+            Destroy(gameObject);
+            return;
+        } else
+        {
+            foreach (var comp in gameObject.GetComponents<Component>())
+            {
+                if (!(comp is Transform || comp is AudioSource))
+                {
+                    Destroy(comp);
+                }
+            }
+            Destroy(mesh);
+            Destroy(objectLight);
+            Destroy(gameObject, projectileType.explosionSound.length + 0.05f);
+        }
+        AudioSource audioSrc = GetComponent<AudioSource>();
+        audioSrc.clip = projectileType.explosionSound;
+        audioSrc.Play();
+
     }
 
 }

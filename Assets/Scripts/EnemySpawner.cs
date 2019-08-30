@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     {
         if (LevelMaster.noRatSpawning && enemyPrefab.name == "Rat")
             Destroy(gameObject);
+        if (LevelMaster.noAcidRatSpawning && enemyPrefab.name == "AcidRat")
+            Destroy(gameObject);
     }
 
     public void OnTriggerEnter(Collider col)

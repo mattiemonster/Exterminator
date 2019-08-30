@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c374d6a125294897784d0c3b506f3, type: 3}
   m_Name: Rocket
   m_EditorClassIdentifier: 
-  damage: 25
-  speed: 16
+  damage: 32
+  speed: 18
   explosive: 1
-  explosionRange: 5
+  explosionRange: 8
+  explosionSound: {fileID: 8300000, guid: 77963f4552924504db577a67c1a12e2a, type: 3}
   collideEffect: {fileID: 8586281900433073270, guid: ee25bf6f9d20bb044ad8555d65a35848,
     type: 3}
   source: 1
