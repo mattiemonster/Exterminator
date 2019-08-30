@@ -20,8 +20,10 @@ MonoBehaviour:
   reloadTime: 3
   range: 100
   showWeaponReady: 1
-  ammoType: 0
+  ammoType: 1
   fireMode: 0
   weaponPrefab: {fileID: 0}
-  weaponIcon: {fileID: 0}
-  shootSound: {fileID: 0}
+  projectile: {fileID: 4759624044043554509, guid: 522bd48b5833a584191474558d3bb478,
+    type: 3}
+  weaponIcon: {fileID: 21300000, guid: 5f6cd8cf767cb0549bccf60752b9bce6, type: 3}
+  shootSound: {fileID: 8300000, guid: fd76ea259eb8508428efa1b4b9ca74c2, type: 3}

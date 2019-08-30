@@ -35,6 +35,8 @@ public class Weapon : ScriptableObject
     public FireMode fireMode = FireMode.SingleFire;
     [Tooltip("Weapon prefab used for viewmodels.")]
     public GameObject weaponPrefab;
+    [Tooltip("Projectile to fire, if applicable.")]
+    public GameObject projectile;
     [Tooltip("Sprite shown in current weapon UI.")]
     public Sprite weaponIcon;
     [Tooltip("Sound played when the weapon is fired")]

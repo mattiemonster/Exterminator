@@ -23,7 +23,7 @@ public class WeaponPickup : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             if (!LevelMaster.movementTutCompleted) return;
-            if (!LevelMaster.shootTutCompleted) shootTut.ShowTutorial();
+            if (!LevelMaster.shootTutCompleted) shootTut?.ShowTutorial();
             GetComponent<AudioSource>().Play();
             newWeaponUI.OpenUI(weapon);
             currentWeaponUI.SetWeapon(weapon);

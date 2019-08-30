@@ -105,14 +105,21 @@ public class Player : MonoBehaviour
         audioSrc.Play();
         
         // Check for enemy hit
-        RaycastHit hit;
-        if(Physics.Raycast(fpsCam.transform.position, transform.forward, out hit, currentWeapon.range))
+
+        if (currentWeapon.ammoType == AmmoType.Projectile)
         {
-            Debug.DrawRay(fpsCam.transform.position, hit.point, Color.green, 5f);
-            if (hit.transform.gameObject.tag == "Enemy")
+            Instantiate(currentWeapon.projectile, transform.position, fpsCam.transform.rotation);
+        } else
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(fpsCam.transform.position, transform.forward, out hit, currentWeapon.range))
             {
-                crosshair.PlayDamageAnim();
-                hit.transform.gameObject.GetComponent<EnemyObject>().Hurt(currentWeapon.damage);
+                // Debug.DrawRay(fpsCam.transform.position, hit.point, Color.green, 5f);
+                if (hit.transform.gameObject.tag == "Enemy")
+                {
+                    crosshair.PlayDamageAnim();
+                    hit.transform.gameObject.GetComponent<EnemyObject>().Hurt(currentWeapon.damage);
+                }
             }
         }
 
