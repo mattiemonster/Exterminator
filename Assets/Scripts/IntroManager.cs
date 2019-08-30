@@ -7,6 +7,15 @@ public class IntroManager : MonoBehaviour
     public GameObject textObject;
     public GameObject loadingDialogObject;
 
+    void Start()
+    {
+        if (LevelMaster.viewedIntro)
+        {
+            loadingDialogObject.SetActive(true);
+            SceneManager.LoadSceneAsync("Level");
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -14,6 +23,7 @@ public class IntroManager : MonoBehaviour
             if (!textTyper.AnyEntriesLeft)
             {
                 loadingDialogObject.SetActive(true);
+                LevelMaster.viewedIntro = true;
                 SceneManager.LoadSceneAsync("Level");
                 return;
             }

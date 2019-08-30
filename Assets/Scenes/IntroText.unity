@@ -1241,6 +1241,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entries:
   - We've got a job for you.
-  - Our place is infested with rats.
-  - 
+  - Our place has a couple of rats.
+  - Don't worry, they're friendly.
+  - We should probably get rid of them though.
+  - But we can't be arsed.
+  - That's where you come in!
+  - Just pick them up, move them somewhere safe.
+  - No need to kill them.
+  - Once you get to the end, feel free to leave.
+  - Should be a normal door.
+  - Also, of course, we'll pay you!
+  - ok get to work
   text: {fileID: 2044593027}
