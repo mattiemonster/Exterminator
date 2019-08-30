@@ -18,6 +18,12 @@ public class TextTyper : MonoBehaviour
 
     void Start()
     {
+        if (LevelMaster.viewedIntro)
+        {
+            text.text = "You've already seen this!";
+            return;
+        }
+
         text.text = "";
         if (entries.Count == 0) Debug.LogError("No text items");
         LoadString(0);
