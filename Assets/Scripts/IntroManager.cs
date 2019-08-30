@@ -6,6 +6,7 @@ public class IntroManager : MonoBehaviour
     public TextTyper textTyper;
     public GameObject textObject;
     public GameObject loadingDialogObject;
+    public AudioSource continueSound;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class IntroManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            continueSound.Play();
             if (!textTyper.AnyEntriesLeft)
             {
                 loadingDialogObject.SetActive(true);
