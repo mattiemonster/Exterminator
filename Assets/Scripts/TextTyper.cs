@@ -7,6 +7,11 @@ public class TextTyper : MonoBehaviour
     public List<string> entries;
     public TextMeshProUGUI text;
 
+    public bool AnyEntriesLeft
+    {
+        get { return (stringIndex != entries.Count - 1) ? true : false; }
+    }
+
     private int stringIndex = 0;
     private int charIndex;
     private int maxChar;
