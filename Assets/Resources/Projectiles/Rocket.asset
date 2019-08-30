@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c374d6a125294897784d0c3b506f3, type: 3}
   m_Name: Rocket
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 25
   speed: 10
   collideEffect: {fileID: 0}
+  source: 1
