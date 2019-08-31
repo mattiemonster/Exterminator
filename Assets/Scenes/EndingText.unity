@@ -1335,3 +1335,4 @@ MonoBehaviour:
   - You know, where I said you could put them.
   - Man, I wish I was one of them, such an easy life.
   text: {fileID: 2044593027}
+  isIntro: 0
