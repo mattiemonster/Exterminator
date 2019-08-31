@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class IntroManager : MonoBehaviour
     public TextTyper textTyper;
     public GameObject textObject;
     public GameObject loadingDialogObject;
+    public GameObject cover;
     public AudioSource continueSound;
     public string nextLevel = "Level";
     public bool isIntro = true;
@@ -26,9 +28,16 @@ public class IntroManager : MonoBehaviour
             continueSound.Play();
             if (!textTyper.AnyEntriesLeft)
             {
-                loadingDialogObject.SetActive(true);
-                LevelMaster.viewedIntro = true;
-                SceneManager.LoadSceneAsync(nextLevel);
+                if (isIntro)
+                {
+                    loadingDialogObject.SetActive(true);
+                    LevelMaster.viewedIntro = true;
+                    SceneManager.LoadSceneAsync(nextLevel);
+                } else
+                {
+                    cover.SetActive(true);
+                    StartCoroutine(TransitionDelayed());
+                }
                 return;
             }
 
@@ -36,5 +45,11 @@ public class IntroManager : MonoBehaviour
             textObject.GetComponent<Animator>().StopPlayback();
             textObject.GetComponent<Animator>().Play("ContinueAnim");
         }
+    }
+
+    IEnumerator TransitionDelayed(float time = 0.75f)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadSceneAsync(nextLevel);
     }
 }

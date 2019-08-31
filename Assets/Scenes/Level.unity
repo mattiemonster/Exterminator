@@ -3614,6 +3614,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 228501998066874847, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 228501998066874847, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+        type: 3}
+      propertyPath: m_TagString
+      value: EndCover
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7724c7fa991d10440ae2d3b3dab1c264, type: 3}
 --- !u!114 &91204983 stripped
@@ -9338,6 +9348,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &250009478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 228501998066874847, guid: 7724c7fa991d10440ae2d3b3dab1c264,
+    type: 3}
+  m_PrefabInstance: {fileID: 91204982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &255791851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8999654593958096715, guid: ee461f46ef9e1234581d37d23ed948f3,
@@ -98050,6 +98066,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 524786371}
   m_RootOrder: 70
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2068208111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068208113}
+  - component: {fileID: 2068208112}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: LevelMan
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2068208112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068208111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52767221e1088194598a180c86645081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endCover: {fileID: 250009478}
+--- !u!4 &2068208113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068208111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2069426735
 PrefabInstance:

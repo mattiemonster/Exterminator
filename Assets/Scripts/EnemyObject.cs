@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyObject : MonoBehaviour
 {
@@ -91,7 +92,8 @@ public class EnemyObject : MonoBehaviour
             if (enemyType.isBossEnemy) LevelMaster.prime.bossHB.Close();
             audioSrc.clip = enemyType.deathSound;
             audioSrc.Play();
-            Destroy(gameObject, enemyType.deathSound.length);
+            if (enemyType.isBossEnemy) GameObject.FindWithTag("LevelMan").GetComponent<LevelManager>().End();
+            if (!enemyType.isBossEnemy) Destroy(gameObject, enemyType.deathSound.length);
             Destroy(this);
         }
     }
@@ -116,6 +118,7 @@ public class EnemyObject : MonoBehaviour
     {
         if (canAttack)
         {
+            if (dead) return;
             EnterAttackModel();
             StartCoroutine(ReturnToIdleModel());
             StartCoroutine(AttackCooldown(enemyType.attackDelay));

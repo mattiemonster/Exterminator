@@ -6,6 +6,7 @@ public class TextTyper : MonoBehaviour
 {
     public List<string> entries;
     public TextMeshProUGUI text;
+    public bool isIntro = true;
 
     public bool AnyEntriesLeft
     {
@@ -18,7 +19,7 @@ public class TextTyper : MonoBehaviour
 
     void Start()
     {
-        if (LevelMaster.viewedIntro)
+        if (LevelMaster.viewedIntro && isIntro)
         {
             text.text = "You've already seen this!";
             return;

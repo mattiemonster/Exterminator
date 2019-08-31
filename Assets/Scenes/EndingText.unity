@@ -564,9 +564,10 @@ MonoBehaviour:
   textTyper: {fileID: 2044593029}
   textObject: {fileID: 435564829}
   loadingDialogObject: {fileID: 228775011}
+  cover: {fileID: 1954600451}
   continueSound: {fileID: 854786580}
-  nextLevel: Level
-  isIntro: 1
+  nextLevel: Credits
+  isIntro: 0
 --- !u!82 &854786580
 AudioSource:
   m_ObjectHideFlags: 0
@@ -756,6 +757,7 @@ RectTransform:
   - {fileID: 2044593026}
   - {fileID: 60988186}
   - {fileID: 228775012}
+  - {fileID: 1954600452}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -764,6 +766,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1954600451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1954600452}
+  - component: {fileID: 1954600454}
+  - component: {fileID: 1954600453}
+  m_Layer: 5
+  m_Name: Cover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1954600452
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954600451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1203615295}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1954600453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954600451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1954600454
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954600451}
+  m_CullTransparentMesh: 0
 --- !u!1 &1955085644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,16 +1326,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entries:
-  - We've got a job for you.
-  - Our place - which we put a lot of effort into detailing - has a couple of rats.
-  - Don't worry, they're friendly.
-  - We should probably get rid of them though.
-  - But we can't be arsed.
-  - That's where you come in!
-  - Just pick them up, move them somewhere safe.
-  - No need to kill them.
-  - Once you get to the end, feel free to leave.
-  - Should be a normal door.
-  - Also, of course, we'll pay you!
-  - ok get to work
+  - So I guess you did it.
+  - As promised, here's your pay check.
+  - What do you mean there's nothing there?
+  - Hmm, weird.
+  - Well, I guess you treated those rats nicely.
+  - Bet they're living happily in the nearby forest.
+  - You know, where I said you could put them.
+  - Man, I wish I was one of them, such an easy life.
   text: {fileID: 2044593027}
