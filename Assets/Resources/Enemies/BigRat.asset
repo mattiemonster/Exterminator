@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb45a2607c1a8af4f8f821985013e3ad, type: 3}
+  m_Name: BigRat
+  m_EditorClassIdentifier: 
+  enemyName: Big Rat
+  maxHealth: 175
+  damage: 15
+  movementSpeed: 2
+  attackDelay: 1.5
+  attackKnockback: 40
+  supressBasicAI: 0
+  isBossEnemy: 1
+  hurtSound: {fileID: 8300000, guid: 3f7c6082b5499504c8482107165b62ea, type: 3}
+  attackType: 0
+  projectile: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: af4020b3bd191074990ab51774fd3165, type: 3}

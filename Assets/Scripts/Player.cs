@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        LevelMaster.Start();
         audioSrc = GetComponent<AudioSource>();
         reloadingUI.SetActive(false);
     }
@@ -125,7 +126,7 @@ public class Player : MonoBehaviour
 
         if (currentAmmo == 12 && !LevelMaster.reloadTutCompleted)
         {
-            reloadTutorial.ShowTutorial();
+            reloadTutorial?.ShowTutorial();
         }
 
         if (currentAmmo == 0)

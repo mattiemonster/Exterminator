@@ -79,6 +79,8 @@ public class PauseMenuButton : MonoBehaviour
             default:
                 return;
         }
+
+        OnPointerExit(eventData);
     }
 
     IEnumerator CloseMenu()

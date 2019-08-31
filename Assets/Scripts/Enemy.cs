@@ -23,6 +23,7 @@ public class Enemy : ScriptableObject
     public float attackKnockback = 40f;
     [Tooltip("If true, basic enemy ai (move directly to player position) will be disabled")]
     public bool supressBasicAI = false;
+    public bool isBossEnemy = false;
     [Tooltip("Sound played when enemy is hurt.")]
     public AudioClip hurtSound;
     [Tooltip("Enemy attack type")]

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17c374d6a125294897784d0c3b506f3, type: 3}
+  m_Name: BigAcidBall
+  m_EditorClassIdentifier: 
+  damage: 35
+  speed: 24
+  explosive: 0
+  explosionRange: 5
+  maxFlyTime: 10
+  explosionSound: {fileID: 8300000, guid: 070cca637377f5849a9fd3dacfe3fd22, type: 3}
+  collideEffect: {fileID: 5480438148509767061, guid: dea3b76d256ccb644b2468fd801d01b1,
+    type: 3}
+  source: 0

@@ -7,10 +7,10 @@ public class EnemyObject : MonoBehaviour
     [Header("Values")]
     public Enemy enemyType;
     public MeshRenderer meshRenderer;
+    public MeshRenderer attackMeshRenderer;
     public bool canAttack = true;
     [Space]
-    [SerializeField]
-    private float health;
+    public float health;
 
     [Header("Scene References")]
     public GameObject idleModel;
@@ -24,6 +24,7 @@ public class EnemyObject : MonoBehaviour
     private Rigidbody rb;
     private AudioSource audioSrc;
     private Color originalColour;
+    private bool dead = false;
     [HideInInspector]
     public NavMeshAgent agent;
 
@@ -41,6 +42,11 @@ public class EnemyObject : MonoBehaviour
         health = enemyType.maxHealth;
         idleModel.SetActive(true);
         attackModel.SetActive(false);
+        if (enemyType.isBossEnemy)
+        {
+            LevelMaster.prime.bossHB.enemy = this;
+            LevelMaster.prime.bossHB.Show();
+        }
     }
 
     IEnumerator HurtEffect(MeshRenderer toFlash, Color flashColor, float flashTime, float flashSpeed)
@@ -77,9 +83,12 @@ public class EnemyObject : MonoBehaviour
         if (health <= 0)
         {
             StopAllCoroutines();
-            Destroy(meshRenderer);
+            Destroy(meshRenderer.gameObject);
+            Destroy(attackMeshRenderer.gameObject);
             Destroy(GetComponent<BoxCollider>());
             Destroy(eyeLight);
+            dead = true;
+            if (enemyType.isBossEnemy) LevelMaster.prime.bossHB.Close();
             audioSrc.clip = enemyType.deathSound;
             audioSrc.Play();
             Destroy(gameObject, enemyType.deathSound.length);
@@ -117,11 +126,11 @@ public class EnemyObject : MonoBehaviour
             // Melee attack
 
             // Knockback
-            Vector3 moveDirection = player.transform.position - transform.position;
-            moveDirection.y = 0;
+            // Vector3 moveDirection = player.transform.position - transform.position;
+            // moveDirection.y = 0;
             // rb.AddForce(moveDirection.normalized * -enemyType.attackKnockback);
-            if (rb.velocity.y >= 1)
-                rb.velocity = new Vector3(rb.velocity.x, 1, rb.velocity.z);
+            // if (rb.velocity.y >= 1)
+            //     rb.velocity = new Vector3(rb.velocity.x, 1, rb.velocity.z);
 
             if (!canAttack) return; // If still cooling down, do not attack
 
@@ -140,6 +149,7 @@ public class EnemyObject : MonoBehaviour
 
     void EnterAttackModel()
     {
+        if (dead) return;
         attackModel.SetActive(true);
         idleModel.SetActive(false);
     }
@@ -153,6 +163,7 @@ public class EnemyObject : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (dead) return;
         if (enemyType.supressBasicAI) return;
         agent.SetDestination(player.transform.position);
     }

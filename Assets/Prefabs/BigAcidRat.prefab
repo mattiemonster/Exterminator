@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986336785490286924}
-  m_Mesh: {fileID: -2432090755550338912, guid: ba356c28746592143988576fefce07d8, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: b77535d5141bf28429f7c135e9fc8640, type: 3}
 --- !u!23 &7407097794965890521
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1846243344208071142}
   - component: {fileID: 440479560261675434}
   m_Layer: 9
-  m_Name: AcidRat
+  m_Name: BigAcidRat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,8 +107,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5448414813829496017}
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -29.686205, y: 0, z: 2.269777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1560829810913893882}
@@ -116,7 +116,7 @@ Transform:
   - {fileID: 2138025214729510060}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4088500390793258454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spitBall: {fileID: 4759624044043554509, guid: 9f9e2751b83353544a4210fd683e5005,
     type: 3}
-  spitDistance: 8
+  spitDistance: 15
+  boss: 1
 --- !u!114 &660867099974308101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f0f78c29757c347962c6159546b971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: {fileID: 11400000, guid: 25d70395d03ab9041baed75d9dfa0e14, type: 2}
+  enemyType: {fileID: 11400000, guid: 63cc98d0a50f31f4f891d02f14ced695, type: 2}
   meshRenderer: {fileID: 7407097794965890521}
   attackMeshRenderer: {fileID: 1127371779954845599}
   canAttack: 1
@@ -433,7 +434,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8286223445809158922}
-  m_Mesh: {fileID: -2432090755550338912, guid: b9814b1b5aa8a5547ad99dd7f7b1e0d6, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 2cf6e8e180d83024598e5b9622c53b05, type: 3}
 --- !u!23 &1127371779954845599
 MeshRenderer:
   m_ObjectHideFlags: 0

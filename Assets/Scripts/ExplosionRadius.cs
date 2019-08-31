@@ -32,7 +32,7 @@ public class ExplosionRadius : MonoBehaviour
         {
             var dist = Vector3.Distance(col.gameObject.transform.position, transform.position);
             var damage = Mathf.Lerp(projectile.damage, 0, (dist / (projectile.explosionRange / 2)));
-            Debug.Log(damage);
+            // Debug.Log(damage);
             col.gameObject.GetComponent<Player>().Hurt(damage);
         }
         if (col.gameObject.tag == "Enemy")
@@ -40,7 +40,7 @@ public class ExplosionRadius : MonoBehaviour
             // Debug.Log("Attempting hit");
             var dist = Vector3.Distance(col.gameObject.transform.position, transform.position);
             var damage = Mathf.Lerp(projectile.damage, 0, (dist / (projectile.explosionRange / 2)));
-            Debug.Log(damage);
+            // Debug.Log(damage);
             col.gameObject.GetComponent<EnemyObject>().Hurt(damage);
         }
 
@@ -48,10 +48,8 @@ public class ExplosionRadius : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Updating");
         if (triggered)
         {
-            Debug.Log("destroying");
             Destroy(gameObject);
         }
     }

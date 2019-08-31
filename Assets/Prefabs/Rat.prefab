@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: {fileID: 11400000, guid: 13d19cd09d1d0664ea44e835f05f33fd, type: 2}
   meshRenderer: {fileID: 259088740302741959}
+  attackMeshRenderer: {fileID: 6306218113551046035}
   canAttack: 1
   health: 0
   idleModel: {fileID: 9134383258043784530}

@@ -8,7 +8,8 @@ public enum ButtonType
 {
     START,
     OPTIONS,
-    QUIT
+    QUIT,
+    OPTIONS_CLOSE
 }
 
 public class MenuButton : MonoBehaviour
@@ -16,6 +17,7 @@ public class MenuButton : MonoBehaviour
     [Header("Values")]
     public string buttonText;
     public ButtonType buttonType;
+    public string startLevel = "IntroText";
 
     [Header("Asset References")]
     public AudioClip hoverSound;
@@ -23,6 +25,7 @@ public class MenuButton : MonoBehaviour
 
     [Header("Scene References")]
     public GameObject cover;
+    public GameObject optionsDialog;
 
     private TextMeshProUGUI text;
     private AudioSource audioSrc;
@@ -57,26 +60,30 @@ public class MenuButton : MonoBehaviour
                 StartCoroutine(StartGame());
                 break;
             case ButtonType.OPTIONS:
-                // Open options menu
+                optionsDialog.SetActive(true);
                 break;
             case ButtonType.QUIT:
                 cover.SetActive(true);
                 cover.GetComponent<Animator>().Play("ShowCover");
-                Debug.Log("Quiting game, main menu button pressed.");
+                Debug.Log("Quitting game, main menu button pressed.");
                 StartCoroutine(QuitGame());
+                break;
+            case ButtonType.OPTIONS_CLOSE:
+                optionsDialog.SetActive(false);
+                OnPointerExit(eventData);
                 break;
 
             default:
                 return;
         }
         audioSrc.clip = buttonPressedSound;
-        audioSrc.Play();
+        if (!(buttonType == ButtonType.OPTIONS_CLOSE)) audioSrc.Play();
     }
 
     IEnumerator StartGame()
     {
         yield return new WaitForSeconds(buttonPressedSound.length + 0.05f);
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(startLevel);
     }
 
     IEnumerator QuitGame()
