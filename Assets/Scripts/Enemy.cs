@@ -26,6 +26,8 @@ public class Enemy : ScriptableObject
     public bool isBossEnemy = false;
     [Tooltip("Sound played when enemy is hurt.")]
     public AudioClip hurtSound;
+    [Tooltip("Sound played when an enemy attacks.")]
+    public AudioClip attackSound;
     [Tooltip("Enemy attack type")]
     public EnemyAttackType attackType;
     [Tooltip("Attack projectile (if applicable)")]

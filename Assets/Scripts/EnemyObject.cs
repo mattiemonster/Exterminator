@@ -144,6 +144,12 @@ public class EnemyObject : MonoBehaviour
             Instantiate(enemyType.projectile, transform.position, Quaternion.identity);
         }
 
+        if (enemyType.attackSound)
+        {
+            audioSrc.clip = enemyType.attackSound;
+            audioSrc.Play();
+        }
+
         canAttack = false;
     }
 

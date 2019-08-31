@@ -21,6 +21,7 @@ MonoBehaviour:
   supressBasicAI: 1
   isBossEnemy: 1
   hurtSound: {fileID: 8300000, guid: 3f7c6082b5499504c8482107165b62ea, type: 3}
+  attackSound: {fileID: 8300000, guid: 5277dea3f86226a4fa70d92d9864e6f0, type: 3}
   attackType: 1
   projectile: {fileID: 4759624044043554509, guid: 3c31a818bed43144aa00512e435cf342,
     type: 3}

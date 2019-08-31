@@ -19,7 +19,9 @@ MonoBehaviour:
   attackDelay: 3
   attackKnockback: 40
   supressBasicAI: 1
+  isBossEnemy: 0
   hurtSound: {fileID: 8300000, guid: 4d1e3ef1ea8071c43ae6b01a75bedd14, type: 3}
+  attackSound: {fileID: 8300000, guid: 5277dea3f86226a4fa70d92d9864e6f0, type: 3}
   attackType: 1
   projectile: {fileID: 4759624044043554509, guid: 9f9e2751b83353544a4210fd683e5005,
     type: 3}

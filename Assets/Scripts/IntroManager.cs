@@ -7,13 +7,15 @@ public class IntroManager : MonoBehaviour
     public GameObject textObject;
     public GameObject loadingDialogObject;
     public AudioSource continueSound;
+    public string nextLevel = "Level";
+    public bool isIntro = true;
 
     void Start()
     {
-        if (LevelMaster.viewedIntro)
+        if (LevelMaster.viewedIntro && isIntro)
         {
             loadingDialogObject.SetActive(true);
-            SceneManager.LoadSceneAsync("Level");
+            SceneManager.LoadSceneAsync(nextLevel);
         }
     }
 
@@ -26,7 +28,7 @@ public class IntroManager : MonoBehaviour
             {
                 loadingDialogObject.SetActive(true);
                 LevelMaster.viewedIntro = true;
-                SceneManager.LoadSceneAsync("Level");
+                SceneManager.LoadSceneAsync(nextLevel);
                 return;
             }
 
